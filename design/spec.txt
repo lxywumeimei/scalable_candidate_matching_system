@@ -1,0 +1,28 @@
+Scalable Candidate Matching System
+Recruiters often manually review hundreds of resumes for a single role. This project is trying to rank job candidates against a specific job description and return the top K candidates by exploring how candidate–job compatibility can be evaluated automatically in a transparent way.
+
+1. System Input
+Job Posting - Plain text job description containing required qualifications, preferred qualifications, responsibilities, and constraints (e.g., location, authorization)
+
+Candidate Profiles - Resume file (PDF or DOCX), and possibly some extra structured information such as Visa status, relocation willingness, or earliest available start date.
+
+Parameter K — number of top candidates to return.
+
+2. System Output
+The system returns at most K candidates with highest matching score. Each of them should contain candidate resume, matching score, and concise explanation which summarizes key matched qualifications, key missing required qualifications (if any), and constraint compatibility notes.
+
+3. Scoring Logic
+This system evaluates candidates via different criteria, such as required skills, preferred skills, experience alignment, and constraints. The weight of each criteria is configurationable.
+
+There are two types of constraints: hard constraints (e.g., work authorization, location) are used to filter out disqualified candidates, while soft constraints (e.g., preferred skills, optional qualifications) will influence matching score but do not eliminate candidates.
+
+This system is expected to exclude protected attributes (gender, race, age, etc.) from scoring.
+
+4. Performance Targets
+For a job description with candidate data, this system needs to return top K results within 3 seconds for up to 100 candidates, and within 10 seconds for up to 500 candidates.
+
+5. Evaluation Approach
+To validate effectiveness, we will create sample datasets, manually identify expected top candidates, and measure whether they appear in top K results of the system. Besides, we will review explanation quality manually.
+
+6. Out of Scope
+This version of system will not store resumes.
